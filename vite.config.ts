@@ -1,17 +1,17 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import Components from "unplugin-vue-components/vite";
-import { VantResolver } from "unplugin-vue-components/resolvers";
+// import Components from "unplugin-vue-components/vite";
+// import { VantResolver } from "unplugin-vue-components/resolvers";
 import VWPlugin from "postcss-px-to-viewport";
-
+const additionalData = `@import "@m-xushu/global-style-lib/dist/style/_variables.less";`;
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    Components({
-      resolvers: [VantResolver()],
-    }),
+    // Components({
+    //   resolvers: [VantResolver()],
+    // }),
   ],
   resolve: {
     alias: {
@@ -19,14 +19,12 @@ export default defineConfig({
     },
   },
   css: {
-    // preprocessorOptions: {
-    //   less: {
-    //     // 全局使用less变量，无需引入
-    //     additionalData:
-    //       '@import "@baoxiaohe/lib-components/styles/global/value.less";',
-    //     javascriptEnabled: true,
-    //   },
-    // },
+    preprocessorOptions: {
+      less: {
+        additionalData,
+        javascriptEnabled: true,
+      },
+    },
     postcss: {
       plugins: [
         VWPlugin({

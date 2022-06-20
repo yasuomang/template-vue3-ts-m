@@ -1,10 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onMounted } from "vue";
+onMounted(() => {
+  setTimeout(() => {
+    console.log(111);
+  }, 1000);
+});
+</script>
 
 <template>
   <router-view />
 </template>
 
-<style>
+<style lang="less">
 html,
 body,
 #app {
