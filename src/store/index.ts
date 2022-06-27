@@ -1,7 +1,7 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
 
 export const useMainStore = defineStore({
-  id: "index",
+  id: 'index',
   state: () => ({}),
   getters: {},
   actions: {},
