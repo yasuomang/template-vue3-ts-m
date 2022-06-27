@@ -1,18 +1,11 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-// import Components from "unplugin-vue-components/vite";
-// import { VantResolver } from "unplugin-vue-components/resolvers";
 import VWPlugin from "postcss-px-to-viewport";
 const additionalData = `@import "@m-xushu/global-style-lib/dist/style/_variables.less";`;
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    // Components({
-    //   resolvers: [VantResolver()],
-    // }),
-  ],
+  plugins: [vue()],
   resolve: {
     alias: {
       "@": resolve(__dirname, "src"),
