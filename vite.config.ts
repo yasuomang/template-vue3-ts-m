@@ -32,4 +32,17 @@ export default defineConfig({
       ],
     },
   },
+  //启动服务配置
+  server: {
+    host: '0.0.0.0',
+    port: 1234,
+    open: false,
+    https: false,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
+    },
+  },
 });
